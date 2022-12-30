@@ -39,5 +39,5 @@ for i in range(63):
 df=pd.DataFrame(distance)
 dt=pd.DataFrame(timeTravel)
 df.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\matrix1.xlsx', index= False, header=False)
-df.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\TimeTravel.xlsx', index= False, header=False)
+dt.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\TimeTravel.xlsx', index= False, header=False)
             

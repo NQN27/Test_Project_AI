@@ -26,7 +26,7 @@ def transform_place_to_location():
 start_place=[21.0042694,105.8459098]
 end_place=[10.400045751017585, 106.25207711047737]
 def get_place(place):
-    Chosen_place=[21.02776932801737, 105.83415721961636]
+    Chosen_place=[]
     for i in range(len(name)):
             p=str(location[i][0]).split(',')
             dis=haversine(place[0],place[1],float(p[0]),float(p[1]))
@@ -35,13 +35,15 @@ def get_place(place):
     return Chosen_place
 Chosen_start=get_place(start_place)
 Chosen_end=get_place(end_place)   
-
+print(Chosen_end,Chosen_start)
 min=1e9
 for start in Chosen_start:
     for end in Chosen_end:
-        p,s=test_class.A_star_search(test_class.encode(end), test_class.encode(start),0)
+        p,s=test_class.A_star_search(test_class.encode(end), test_class.encode(start))
         if min>p:
-            min=p
+            min=p            
             way=s
-            
+print(min) 
+for i in s:
+    print(i, end='->')            
         
