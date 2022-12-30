@@ -4,68 +4,43 @@ from queue import PriorityQueue
 import time
 
 class city(object):
-    def __init__(self, id, using_time = False, using_ucs = True):
+    def __init__(self, id, using_ucs = True):
         self.id = id
         self.name = decode(id)
         
         self.ucs_cost = None
         self.a_star_cost = None
-        self.ucs_time = None
-        self.a_star_time = None
         self.path = []
-        
-        self.using_time = using_time
         self.using_ucs = using_ucs
     
     def __eq__(self, other):
         if self.using_ucs == True: # using ucs
-            if self.using_time == False: # consider cost only
-                return self.ucs_cost == other.ucs_cost 
-            return self.ucs_time == other.ucs_time #consider time only
-        else: # using a*
-            if  self.using_time == False:
-                return self.a_star_cost == other.a_star_cost
-            return self.a_star_time == other.a_star_time
+            return self.ucs_cost == other.ucs_cost 
+        # using a*
+        return self.a_star_cost == other.a_star_cost
 
     def __lt__(self, other):
         if self.using_ucs == True: # using ucs
-            if self.using_time == False: # consider cost only
-                return self.ucs_cost < other.ucs_cost 
-            return self.ucs_time < other.ucs_time #consider time only
-        else: # using a*
-            if  self.using_time == False:
-                return self.a_star_cost < other.a_star_cost
-            return self.a_star_time < other.a_star_time
-    
+            return self.ucs_cost < other.ucs_cost 
+        # using a*
+        return self.a_star_cost < other.a_star_cost
     def __le__(self, other):
         if self.using_ucs == True: # using ucs
-            if self.using_time == False: # consider cost only
-                return self.ucs_cost <= other.ucs_cost 
-            return self.ucs_time <= other.ucs_time #consider time only
-        else: # using a*
-            if  self.using_time == False:
-                return self.a_star_cost <= other.a_star_cost
-            return self.a_star_time <= other.a_star_time
+            return self.ucs_cost <= other.ucs_cost 
+        # using a*
+        return self.a_star_cost <= other.a_star_cost
     
     def __gt__(self, other):
         if self.using_ucs == True: # using ucs
-            if self.using_time == False: # consider cost only
-                return self.ucs_cost > other.ucs_cost 
-            return self.ucs_time > other.ucs_time #consider time only
-        else: # using a*
-            if  self.using_time == False:
-                return self.a_star_cost > other.a_star_cost
-            return self.a_star_time > other.a_star_time
+            return self.ucs_cost > other.ucs_cost 
+        # using a*
+        return self.a_star_cost > other.a_star_cost
 
     def __ge__(self, other):
         if self.using_ucs == True: # using ucs
-            if self.using_time == False: # consider cost only
-                return self.ucs_cost >= other.ucs_cost 
-            return self.ucs_time >= other.ucs_time #consider time only
-        else: # using a*
-            if  self.using_time == False:
-                return self.a_star_cost >= other.a_star_cost
-            return self.a_star_time >= other.a_star_time
+            return self.ucs_cost >= other.ucs_cost 
+        # using a*
+        return self.a_star_cost >= other.a_star_cost
 
     def adjacent_city(self):
         adjacent = []
@@ -104,7 +79,7 @@ def uniform_cost_search(goal, start):
 
 def A_star_search(goal, start):
     q = PriorityQueue()
-    p = city(start, False, False)
+    p = city(start, False)
     p.ucs_cost = 0
     p.a_star_cost = 0
 
@@ -120,7 +95,7 @@ def A_star_search(goal, start):
                 
         if (p.name not in visited):
             for c in p.adjacent_city():
-                p1 = city(c, False, False)
+                p1 = city(c, False)
                 p1.ucs_cost = p.ucs_cost + matrix[p.id][c]
                 p1.a_star_cost = p1.ucs_cost + heuristic[p1.id][goal]
                 p1.path = p.path + [p.name]
@@ -138,8 +113,7 @@ def encode(str):
     for i in range(len(name)):
         if name[i] == str:
             return i
-
-
+    return None
 
 
 df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Driving.xlsx")
