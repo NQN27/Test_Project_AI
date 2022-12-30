@@ -140,13 +140,15 @@ def encode(str):
             return i
 
 
-if __name__ == '__main__':
-    df = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/DRIVE.xlsx')
-    df2 = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/AIR.xlsx')
-    heuristic = np.array(df2)[::,1:]
-    name = np.array(df)[::,0] 
-    matrix = np.array(df)[::,1:] 
 
+
+df = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/DRIVE.xlsx')
+df2 = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/AIR.xlsx')
+heuristic = np.array(df2)[::,1:]
+name = np.array(df)[::,0] 
+matrix = np.array(df)[::,1:] 
+
+if __name__ == "__main__":
     while True:
         start = input('START?')
         goal = input('GOAL?')
@@ -183,4 +185,4 @@ if __name__ == '__main__':
             print(i, end='->')        
         print('RUNNING TIME A* SEARCH')
         print("--- %s seconds ---" % (t3 - t2))
-print()
+
