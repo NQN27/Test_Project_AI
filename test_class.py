@@ -142,11 +142,11 @@ def encode(str):
 
 
 
-df = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/DRIVE.xlsx')
-df2 = pd.read_excel('/Users/luong/OneDrive - Hanoi University of Science and Technology/project/AIR.xlsx')
-heuristic = np.array(df2)[::,1:]
+df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Driving.xlsx")
+df2 = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Air_Distance1.xlsx")
+heuristic = np.array(df2)[::,1:]/1000
 name = np.array(df)[::,0] 
-matrix = np.array(df)[::,1:] 
+matrix = np.array(df)[::,1:] /1000
 
 if __name__ == "__main__":
     while True:

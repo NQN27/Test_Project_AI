@@ -1,4 +1,4 @@
-from Calculate_Air import haversine
+from Calculate_Air import haversine,location
 import test_class
 import requests
 import json
@@ -39,10 +39,9 @@ Chosen_end=get_place(end_place)
 min=1e9
 for start in Chosen_start:
     for end in Chosen_end:
-        p,q,s=A_star(encode(end), encode(start),0)
+        p,s=test_class.A_star_search(test_class.encode(end), test_class.encode(start),0)
         if min>p:
             min=p
-            time=q
             way=s
             
         
