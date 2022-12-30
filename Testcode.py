@@ -1,17 +1,14 @@
-from Calculate_Air import *
-from Copy_A_time import name,A_star,matrix
+from Calculate_Air import haversine
+import test_class
 import requests
 import json
+
+matrix = test_class.matrix
+name = test_class.name
+
 print(matrix)
+#đoạn dưới chưa fix 
 
-def decode(n): #cái này để chuyển số thành tên tp
-    global name
-    return str(name[n])
-
-def encode(str): #chuyển tên tp thành số
-    for i in range(len(name)):
-        if name[i] == str:
-            return i
 def transform_place_to_location():
     place= input()
     key='N87KvQLlqZMH3Q6qSQ2NhCm7zfaNyCr3G1N8n2F6'
@@ -30,7 +27,7 @@ start_place=[21.0042694,105.8459098]
 end_place=[10.400045751017585, 106.25207711047737]
 def get_place(place):
     Chosen_place=[21.02776932801737, 105.83415721961636]
-    for i in range(63):
+    for i in range(len(name)):
             p=str(location[i][0]).split(',')
             dis=haversine(place[0],place[1],float(p[0]),float(p[1]))
             if dis<=60:
