@@ -8,9 +8,14 @@ dh = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\A\Air_Distance.xlsx')
 dl = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Location.xlsx")
 name = matrix = np.array(df)[::,0] #Get file name of City
 matrix = np.array(df)[::,1:]
-location=np.array(dl)[::,1:] #Remove the index
+location=np.array(dl)[::,1:]
+locations=np.array(dl)[::,::]#Remove the index
 heuristic = np.array(dh)[::,1:]
-
+print(locations)
+def transform(name):
+    for city in locations:
+        if name in city:
+            return city[1]
 
 distance=[[0 for i in range(63)] for j in range(63)]
 timeTravel=[[0 for i in range(63)] for j in range(63)]
@@ -40,4 +45,3 @@ df=pd.DataFrame(distance)
 dt=pd.DataFrame(timeTravel)
 df.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\matrix1.xlsx', index= False, header=False)
 dt.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\TimeTravel.xlsx', index= False, header=False)
-            
