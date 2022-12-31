@@ -3,12 +3,11 @@ import test_class
 import requests
 import json
 from test_class import encode
-from Calculate_RealDistance import transform
+from Calculate_RealDistance import transform,locations
 matrix = test_class.matrix
 name = test_class.name
 
 
-print(matrix)
 #đoạn dưới chưa fix 
 
 def transform_place_to_location():
@@ -37,6 +36,8 @@ def get_place(place):
                 Chosen_place.append(name[i])
     return Chosen_place
 def get_distance(start,finish):
+    print(start)
+    print(finish)
     key='N87KvQLlqZMH3Q6qSQ2NhCm7zfaNyCr3G1N8n2F6'
     url = "https://rsapi.goong.io/DistanceMatrix?origins={}&destinations={}&vehicle=car&api_key={}".format(start,finish,key)
 
@@ -56,7 +57,8 @@ min=1e9
 for start in Chosen_start:
     for end in Chosen_end:
         p,s=test_class.A_star_search(encode(end), encode(start))
-        p=p + get_distance(start_place, transform(start))[0] + get_distance(end_place, transform(end))[0]
+        
+        p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
         if min>p:
             min=p            
             way=s
