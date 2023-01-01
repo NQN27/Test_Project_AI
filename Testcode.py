@@ -7,7 +7,6 @@ from Calculate_RealDistance import locations,transform
 matrix = test_class.matrix
 name = test_class.name
 import Code_interface 
-start_point,end_point,type_input=Code_interface.Call_interface()
 
 
 def transform_place_to_location(place):
@@ -24,12 +23,6 @@ def transform_place_to_location(place):
     lng=data['results'][0]['geometry']['location']['lng']
     return str('{},{}').format(lat,lng)
 
-if type_input == 1:
-    start_place=transform_place_to_location(start_point)
-    end_place=transform_place_to_location(end_point)
-else:
-    start_place=start_point
-    end_place=end_point
 
 def get_place(place):
     Chosen_place=[]
@@ -51,14 +44,23 @@ def get_distance(start,finish):
 
     response = requests.request("GET", url, headers=headers, data=payload)
     data=json.loads(response.text)
+    
     dist=data['rows'][0]['elements'][0]['distance']['value']/1000
     truetime=data['rows'][0]['elements'][0]['duration']['value']
     return [dist,truetime]
 
+start_point,end_point,type_input=Code_interface.Call_interface()
+
+if type_input == 1:
+    start_place=transform_place_to_location(start_point)
+    end_place=transform_place_to_location(end_point)
+else:
+    start_place=start_point
+    end_place=end_point
+    
 Chosen_start=get_place(start_place)
 
 Chosen_end=get_place(end_place)   
-
 
 min=1e9
 for start in Chosen_start:
