@@ -4,14 +4,14 @@ import requests
 import json
 from test_class import encode
 from Calculate_RealDistance import transform,locations
+from Code_interface import *
 matrix = test_class.matrix
 name = test_class.name
 
-
+point,start,end = clicked()
 #đoạn dưới chưa fix 
 
-def transform_place_to_location():
-    place= input()
+def transform_place_to_cordinate(place):
     key='N87KvQLlqZMH3Q6qSQ2NhCm7zfaNyCr3G1N8n2F6'
     url = "https://rsapi.goong.io/geocode?address={}&api_key={}".format(place,key)
 
@@ -39,7 +39,8 @@ def get_distance(start,finish):
     print(start)
     print(finish)
     key='N87KvQLlqZMH3Q6qSQ2NhCm7zfaNyCr3G1N8n2F6'
-    url = "https://rsapi.goong.io/DistanceMatrix?origins={}&destinations={}&vehicle=car&api_key={}".format(start,finish,key)
+    url = "https://rsapi.goong.io/DistanceMatrix?\
+        origins={}&destinations={}&vehicle=car&api_key={}".format(start,finish,key)
 
     payload={}
     headers = {}
@@ -52,13 +53,13 @@ def get_distance(start,finish):
     return [dist,truetime]
 Chosen_start=get_place(start_place)
 Chosen_end=get_place(end_place)   
-print(Chosen_end,Chosen_start)
 min=1e9
 for start in Chosen_start:
     for end in Chosen_end:
         p,s=test_class.A_star_search(encode(end), encode(start))
         
-        p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
+        p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] \
+            + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
         if min>p:
             min=p            
             way=s
