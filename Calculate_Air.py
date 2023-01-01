@@ -1,10 +1,7 @@
 import pandas as pd
 import numpy as np
-df = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\matrix.xlsx')
-dm = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\A\Car_Driving.xlsx')
-dl = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Location.xlsx")
-matrix = np.array(df)[::,1:]/1000 #Remove the index
-matrix2 = np.array(dm)[::,1:]
+dl = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Location.xlsx")
+
 
 from math import radians, sin, cos, sqrt, atan2
 def haversine(lat1, lon1, lat2, lon2):
