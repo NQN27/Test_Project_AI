@@ -73,5 +73,7 @@ if __name__ == '__main__':
                 way=s
                 
     print(min) 
+    print(start_point, end='->')
     for i in s:
-        print(i, end='->')            
+        print(i, end='->')  
+    print(end_point)          
