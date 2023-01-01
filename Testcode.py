@@ -19,6 +19,7 @@ def transform_place_to_location(place):
 
     response = requests.request("GET", url, headers=headers, data=payload)
     data=json.loads(response.text)
+    print(data)
     lat=data['results'][0]['geometry']['location']['lat']
     lng=data['results'][0]['geometry']['location']['lng']
     return str('{},{}').format(lat,lng)
@@ -66,7 +67,7 @@ if __name__ == '__main__':
     for start in Chosen_start:
         for end in Chosen_end:
             p,s=test_class.A_star_search(encode(end), encode(start))
-            p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
+            p=p + get_distance(start_place, transform(start))[0] + get_distance(end_place, transform(end))[0]
             if min>p:
                 min=p            
                 way=s
