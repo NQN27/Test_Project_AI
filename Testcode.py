@@ -48,29 +48,29 @@ def get_distance(start,finish):
     dist=data['rows'][0]['elements'][0]['distance']['value']/1000
     truetime=data['rows'][0]['elements'][0]['duration']['value']
     return [dist,truetime]
+if __name__ == '__main__':
+    start_point,end_point,type_input=Code_interface.Call_interface()
 
-start_point,end_point,type_input=Code_interface.Call_interface()
+    if type_input == 1:
+        start_place=transform_place_to_location(start_point)
+        end_place=transform_place_to_location(end_point)
+    else:
+        start_place=start_point
+        end_place=end_point
+        
+    Chosen_start=get_place(start_place)
 
-if type_input == 1:
-    start_place=transform_place_to_location(start_point)
-    end_place=transform_place_to_location(end_point)
-else:
-    start_place=start_point
-    end_place=end_point
-    
-Chosen_start=get_place(start_place)
+    Chosen_end=get_place(end_place)   
 
-Chosen_end=get_place(end_place)   
-
-min=1e9
-for start in Chosen_start:
-    for end in Chosen_end:
-        p,s=test_class.A_star_search(encode(end), encode(start))
-        p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
-        if min>p:
-            min=p            
-            way=s
-            
-print(min) 
-for i in s:
-    print(i, end='->')            
+    min=1e9
+    for start in Chosen_start:
+        for end in Chosen_end:
+            p,s=test_class.A_star_search(encode(end), encode(start))
+            p=p + get_distance((str(start_place[0])+', '+str(start_place[1])), transform(start))[0] + get_distance((str(end_place[0])+', '+str(end_place[1])), transform(end))[0]
+            if min>p:
+                min=p            
+                way=s
+                
+    print(min) 
+    for i in s:
+        print(i, end='->')            
