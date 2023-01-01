@@ -7,7 +7,6 @@ matrix = np.array(df)[::,1:]/1000 #Remove the index
 matrix2 = np.array(dm)[::,1:]
 
 from math import radians, sin, cos, sqrt, atan2
-
 def haversine(lat1, lon1, lat2, lon2):
     # Convert degrees to radians
     lat1 = radians(lat1)
@@ -29,15 +28,16 @@ def haversine(lat1, lon1, lat2, lon2):
 
 heuristic=[[0 for i in range(63)] for j in range(63)]
 location=np.array(dl)[::,1:]
-for l in location:
-    str(l).split(',')
+def Call():
+    for l in location:
+        str(l).split(',')
 
-for i in range(63):
-    for j in range(63):
-        if i!=j:
-            p=str(location[i][0]).split(',')
-            q=str(location[j][0]).split(',')
-            heuristic[i][j]=haversine(float(p[0]),float(p[1]),float(q[0]),float(q[1]))
-df=pd.DataFrame(heuristic)
-df.to_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Air_Distance1.xlsx", index= False, header=False)
+    for i in range(63):
+        for j in range(63):
+            if i!=j:
+                p=str(location[i][0]).split(',')
+                q=str(location[j][0]).split(',')
+                heuristic[i][j]=haversine(float(p[0]),float(p[1]),float(q[0]),float(q[1]))
+    df=pd.DataFrame(heuristic)
+    df.to_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Air_Distance1.xlsx", index= False, header=False)
             
