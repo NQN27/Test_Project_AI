@@ -96,18 +96,18 @@ def A_star_search(goal, start):
             for c in p.adjacent_city(matrix):
                 p1 = city(c, False)
                 p1.ucs_cost = p.ucs_cost + matrix[p.id][c]
-                p1.a_star_cost = p1.ucs_cost + heuristic[p1.id][goal]
+                p1.a_star_cost = p1.ucs_cost + 2*heuristic[p1.id][goal]
                 p1.path = p.path + [p.name]
                 q.put(p1)
 
         visited.append(p.name)
     return None
 
-def uniform_cost_search_time(goal, start):
+def uniform_cost_search_time(goal, start,start_time):
     q = PriorityQueue()
     
     p = city(start)
-    p.ucs_cost = 0
+    p.ucs_cost = start_time
 
     q.put(p)
     visited = [] #mark by list
@@ -162,7 +162,7 @@ if __name__ == "__main__":
     t2 = time.time()
     answer_a = A_star_search(encode(goal), encode(start))
     t3 = time.time()
-    answer_time = uniform_cost_search_time(encode(goal), encode(start))
+    answer_time = uniform_cost_search_time(encode(goal), encode(start),time.time())
     t4 = time.time()
     if answer == None: #if dont have any solutions
         print('no solution')
