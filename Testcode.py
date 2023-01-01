@@ -19,7 +19,7 @@ def transform_place_to_location(place):
 
     response = requests.request("GET", url, headers=headers, data=payload)
     data=json.loads(response.text)
-    print(data)
+    
     lat=data['results'][0]['geometry']['location']['lat']
     lng=data['results'][0]['geometry']['location']['lng']
     return str('{},{}').format(lat,lng)
@@ -36,7 +36,7 @@ def get_place(place):
     return Chosen_place
 
 def get_distance(start,finish):
-    print(start,finish)
+
     key='sd78W6yR6ms16xXUF76C6RD2OpQgaPrKgBCen66O'
     url = "https://rsapi.goong.io/DistanceMatrix?origins={}&destinations={}&vehicle=car&api_key={}".format(start,finish,key)
 
