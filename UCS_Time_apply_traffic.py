@@ -49,8 +49,8 @@ def Total_time(RTC,ET,CT):
 if __name__ == '__main__':
 
 #đổi cái path ở dưới đến file excel
-    dt = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\TimeTravel.xlsx")
-    dtx = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Extra_Time.xlsx")
+    dt = pd.read_excel(r"TimeTravel.xlsx")
+    dtx = pd.read_excel(r"Extra_Time.xlsx")
     name = np.array(dt)[::,0] #slice như này để lấy luôn index làm list tên tp
     Time_cost = np.array(dt)[::,1:] #slice như này để bỏ 1 dòng index
     Extra_time = np.array(dtx)[::,1:]*60

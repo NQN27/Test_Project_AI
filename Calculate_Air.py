@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-dl = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Location.xlsx")
+dl = pd.read_excel(r"Location.xlsx")
 
 
 from math import radians, sin, cos, sqrt, atan2

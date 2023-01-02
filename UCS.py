@@ -41,7 +41,7 @@ def encode(str): #chuyển tên tp thành số
 if __name__ == '__main__':
 
 #đổi cái path ở dưới đến file excel
-    df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Driving.xlsx")
+    df = pd.read_excel(r"Car_Driving.xlsx")
     name = matrix = np.array(df)[::,0] #slice như này để lấy luôn index làm list tên tp
     matrix = np.array(df)[::,1:] #slice như này để bỏ 1 dòng index
     

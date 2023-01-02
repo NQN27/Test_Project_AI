@@ -3,9 +3,9 @@ import numpy as np
 import requests
 import json
 
-df = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Driving.xlsx')
-dh = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Air_Distance1.xlsx') 
-dl = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Location.xlsx')
+df = pd.read_excel(r'Car_Driving.xlsx')
+dh = pd.read_excel(r'Air_Distance1.xlsx') 
+dl = pd.read_excel(r'Location.xlsx')
 name = matrix = np.array(df)[::,0] #Get file name of City
 matrix = np.array(df)[::,1:]
 location=np.array(dl)[::,1:] #Remove the index
