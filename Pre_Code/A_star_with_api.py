@@ -59,9 +59,9 @@ def encode(str): #chuyển tên tp thành số
 if __name__ == '__main__':
 
 #Input the path of data
-    df = pd.read_excel(r'Car_Driving.xlsx')
-    dh = pd.read_excel(r'Air_Distance.xlsx') 
-    dl = pd.read_excel(r"Location.xlsx")
+    df = pd.read_excel(r'Data\Car_Driving.xlsx')
+    dh = pd.read_excel(r'Data\Air_Distance.xlsx') 
+    dl = pd.read_excel(r"Data\Location.xlsx")
     name = matrix = np.array(df)[::,0] #Get file name of City
     matrix = np.array(df)[::,1:]
     location=np.array(dl)[::,1:] #Remove the index

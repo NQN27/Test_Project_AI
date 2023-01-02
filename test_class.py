@@ -194,9 +194,9 @@ def encode(str):
 
 
 
-df = pd.read_excel(r"Car_Driving.xlsx")
-df2 = pd.read_excel(r"Air_Distance1.xlsx")
-df3 = pd.read_excel(r"TimeTravel.xlsx")
+df = pd.read_excel(r"Data\Car_Driving.xlsx")
+df2 = pd.read_excel(r"Data\Air_Distance1.xlsx")
+df3 = pd.read_excel(r"Data\TimeTravel.xlsx")
 heuristic = np.array(df2)[::,1:]
 name = np.array(df)[::,0]
 matrix = np.array(df)[::,1:]/1000

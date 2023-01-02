@@ -3,9 +3,9 @@ import numpy as np
 import requests
 import json
 
-df = pd.read_excel(r'Car_Driving.xlsx')
-dh = pd.read_excel(r'Air_Distance1.xlsx') 
-dl = pd.read_excel(r'Location.xlsx')
+df = pd.read_excel(r'Data\Car_Driving.xlsx')
+dh = pd.read_excel(r'Data\Air_Distance1.xlsx') 
+dl = pd.read_excel(r'Data\Location.xlsx')
 name = matrix = np.array(df)[::,0] #Get file name of City
 matrix = np.array(df)[::,1:]
 location=np.array(dl)[::,1:] #Remove the index
@@ -47,5 +47,5 @@ if __name__ == '__main__':
                 timeTravel[i][j]=truetime
     df=pd.DataFrame(distance)
     dt=pd.DataFrame(timeTravel)
-    df.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\matrix1.xlsx', index= False, header=False)
-    dt.to_excel(r'C:\Users\FPTSHOP\Desktop\New folder (2)\TimeTravel.xlsx', index= False, header=False)
+    df.to_excel(r'Data\Car_Driving.xlsx', index= False, header=False)
+    dt.to_excel(r'Data\TimeTravel.xlsx', index= False, header=False)

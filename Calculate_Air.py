@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-dl = pd.read_excel(r"Location.xlsx")
+dl = pd.read_excel(r"Data\Location.xlsx")
 
 
 from math import radians, sin, cos, sqrt, atan2
@@ -36,5 +36,5 @@ def Call():
                 q=str(location[j][0]).split(',')
                 heuristic[i][j]=haversine(float(p[0]),float(p[1]),float(q[0]),float(q[1]))
     df=pd.DataFrame(heuristic)
-    df.to_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Air_Distance1.xlsx", index= False, header=False)
+    df.to_excel(r"Data\Air_Distance1.xlsx", index= False, header=False)
             
