@@ -65,7 +65,7 @@ def Call_interface2():
     #Vị trí xuất hiện của Textbox
     top.mainloop()
     return a,b
-def show(m):
+def show_out(m):
     root = Tk()
     root.geometry('800x600')
     def show_map():
