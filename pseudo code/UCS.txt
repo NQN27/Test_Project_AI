@@ -1,0 +1,20 @@
+matrix <- load from Car_Driving.xlsx file
+
+function UCS(start, goal):
+	global variable: path, matrix
+	q = empty queue
+	add a list containing (current_cost = 0, current_city = start, path_to_current_node = an empty list) to the q
+	create empty list named visited 
+ 	while q is not empty do:
+		take the first list in q and dequeue it
+		if the current_city is the goal then:
+			path = path_to_current_city + current_city
+			return current_cost
+		if the current_node not in visited then:
+			for adjacent_city in current_city do:
+				current_cost = current_cost + the cost to go to the adjacent city
+				path_to_current_city = path_to_current_city + adjacent_city
+				add a list containing (current_cost, adjacent_city, path_to_current_node) to the end of q
+				add adjacent_city to the visited
+	return 0 if not find the way to the goal
+
