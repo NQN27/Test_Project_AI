@@ -6,7 +6,17 @@ import folium
 from tkinter import Tk, Label, Button
 import webbrowser
 
-
+def show_map(m):
+    root = Tk()
+    root.title('Show directions map')
+    root.geometry('200x100')
+    def show_map():
+        m.save('map.html')
+        webbrowser.open_new('map.html')
+        root.destroy()
+    button = Button(root, text="Show Map", command=show_map)
+    button.pack()
+    root.mainloop()
 def Call_interface():
 
     top = Tk()
@@ -65,15 +75,7 @@ def Call_interface2():
     #Vị trí xuất hiện của Textbox
     top.mainloop()
     return a,b
-def show_out(m):
-    root = Tk()
-    root.geometry('800x600')
-    def show_map():
-        m.save('map.html')
-        webbrowser.open_new('map.html')
-    button = Button(root, text="Show Map", command=show_map)
-    button.pack()
-    root.mainloop()
+
 
 
 
