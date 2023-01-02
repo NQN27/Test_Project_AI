@@ -146,7 +146,7 @@ df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Dri
 df2 = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Air_Distance1.xlsx")
 df3 = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\TimeTravel.xlsx")
 
-heuristic = np.array(df2)[::,1:]/1000
+heuristic = np.array(df2)[::,1:]
 name = np.array(df)[::,0] 
 matrix = np.array(df)[::,1:] /1000
 time_matrix = np.array(df3)[::,1:]
@@ -162,7 +162,7 @@ if __name__ == "__main__":
     t2 = time.time()
     answer_a = A_star_search(encode(goal), encode(start))
     t3 = time.time()
-    answer_time = uniform_cost_search_time(encode(goal), encode(start),time.time())
+    answer_time = uniform_cost_search_time(encode(goal), encode(start),0)
     t4 = time.time()
     if answer == None: #if dont have any solutions
         print('no solution')
