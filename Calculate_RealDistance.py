@@ -15,10 +15,14 @@ def transform(name):
     for city in locations:
         if name in city:
             return city[1]
+def transform_matrix(name):
+    for city in locations:
+        if name in city:
+            return city[1].split(',')
 
 distance=[[0 for i in range(63)] for j in range(63)]
 timeTravel=[[0 for i in range(63)] for j in range(63)]
-def Call():
+if __name__ == '__main__':
     for i in range(63):
         for j in range(63):
             if matrix[i][j]!=0:
