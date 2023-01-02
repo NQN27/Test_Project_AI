@@ -51,10 +51,10 @@ def encode(str): #chuyển tên tp thành số
 if __name__ == '__main__':
 
 #Input the path of data
-    df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\matrix.xlsx")
-    dh = pd.read_excel(r'C:\Users\FPTSHOP\Desktop\AI_project\A\Air_Distance1.xlsx')
-    dt = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Real_Time.xlsx")
-    dtx = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\A\Extra_Time.xlsx")
+    df = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Car_Driving.xlsx")
+    dh = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Air_Distance1.xlsx")
+    dt = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\TimeTravel.xlsx")
+    dtx = pd.read_excel(r"C:\Users\FPTSHOP\Desktop\AI_project\Test_Project_AI\Extra_Time.xlsx")
     name = np.array(dh)[::,0] #Get file name of City
     
     matrix = np.array(df)[::,1:]/1000 #Remove the index

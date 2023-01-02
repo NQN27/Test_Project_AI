@@ -4,11 +4,7 @@ from queue import PriorityQueue
 import time
 import requests
 import json
-'''
-def Total_time(Real_time,Expand_time,Current_time):
-    # calculate true time cost
-    if (Current_time < 600 and Current_time > 780):
-    '''
+
 def A_star(goal, start,time_start):
     global path,matrix
     q = PriorityQueue()
