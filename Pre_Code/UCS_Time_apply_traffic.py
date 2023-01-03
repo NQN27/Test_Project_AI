@@ -54,7 +54,8 @@ if __name__ == '__main__':
     name = np.array(dt)[::,0] #slice như này để lấy luôn index làm list tên tp
     Time_cost = np.array(dt)[::,1:] #slice như này để bỏ 1 dòng index
     Extra_time = np.array(dtx)[::,1:]*60
-    Time_label=[True if i not in [10,11,12,17,18,19,34,35,36,41,42,43,58,59,60,65,66,67] else False for i in range(0,71)]
+    Time_label=[True if i not in [10,11,12,17,18,19,34,35,36,41,42,43,58,59,60,65,66,67] else False for i in range(0,71)] 
+    # Defind that the time the road is on traffic jams is from 10AM to 1PM and 5PM to 7PM. Consider the time longest time reach is 3 days
     #đoạn còn lại thì input mí run code thoy ^^
     while True:
         start = input('START?')
