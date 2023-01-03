@@ -12,7 +12,8 @@
   Press Show map to get the map in webbrowser
 
   After Running the final_product.ipynb you must reset all variables as it is global by Pressing Restart button.
-
+  
+  *Notation: You can read Pre Code to transform from easy form which had been breaking down or write in easier way to understand
 
 # Implementation
   
