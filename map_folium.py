@@ -67,9 +67,9 @@ def draw_map(
             coor = city[1].split(',')
             latitude = float(coor[0])
             longitude = float(coor[1].strip())
-            if expanded_nodes_U[city[0]] <= 5:
+            if expanded_nodes_U[city[0]] <= 20:
                 col = 'lightgreen'
-            elif expanded_nodes_U[city[0]] > 5 and expanded_nodes_U[city[0]] <= 10:
+            elif expanded_nodes_U[city[0]] > 20 and expanded_nodes_U[city[0]] <= 100:
                 col = 'orange'
             else:
                 col = 'red'
@@ -93,9 +93,9 @@ def draw_map(
             coor = city[1].split(',')
             latitude = float(coor[0])
             longitude = float(coor[1].strip())
-            if expanded_nodes_A1[city[0]] <= 5:
+            if expanded_nodes_A1[city[0]] <= 20:
                 col = 'lightgreen'
-            elif expanded_nodes_A1[city[0]] > 5 and expanded_nodes_A1[city[0]] <= 10:
+            elif expanded_nodes_A1[city[0]] > 20 and expanded_nodes_A1[city[0]] <= 100:
                 col = 'orange'
             else:
                 col = 'red'
@@ -119,9 +119,9 @@ def draw_map(
             coor = city[1].split(',')
             latitude = float(coor[0])
             longitude = float(coor[1].strip())
-            if expanded_nodes_A2[city[0]] <= 5:
+            if expanded_nodes_A2[city[0]] <= 20:
                 col = 'lightgreen'
-            elif expanded_nodes_A2[city[0]] > 5 and expanded_nodes_A2[city[0]] <= 10:
+            elif expanded_nodes_A2[city[0]] > 20 and expanded_nodes_A2[city[0]] <= 100:
                 col = 'orange'
             else:
                 col = 'red'
@@ -130,7 +130,7 @@ def draw_map(
                 popup = 'appear {} times'.format(expanded_nodes_A2[city[0]]),
                 tooltip = city[0],
                 icon = folium.Icon(color = col)
-            ).add_to(a_star_layer1)
+            ).add_to(a_star_layer2)
         else: 
             coor = city[1].split(',')
             latitude = float(coor[0])
@@ -162,7 +162,8 @@ def draw_map(
     a_star_layer2.add_to(m)
 
     folium.LayerControl().add_to(m)
-    m.save(r"output.html")
+    m.save("output.html")
+    return m
 
 
 def draw_line(city, layer, loc_matrix, col):
