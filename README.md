@@ -6,7 +6,9 @@
   download library folium go to cmd and paste 'pip install folium'
 # Instructions 
   Open Folder Test_Project_AI
-
+  
+  Open Terminal paste and run <mark>pip install -r requirements.txt</mark>
+  
   Run the final_product.ipynb 
 
   Input is the Name of the Cities can get from Data\name_list.txt file.
