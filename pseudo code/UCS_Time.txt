@@ -1,0 +1,23 @@
+create a class which name is city containing id, time_cost, path, name
+
+
+function UCS_search(start,goal,current_time):
+	q <- empty priority queue
+	p <- city() with p.name <- start, p.time_cost <- 0,p.current_time <- current_time
+	create empty list named visited 
+ 	while q is not empty do:
+		take the first class variable in q and dequeue it
+		if p.name is the goal then:
+			return p.time_cost, p.path
+		if p.name not in visited then:
+			for city that is adjacent to p.name do:
+				p1 <- city() with p1.name <- adjacent_city
+				if current_time in a traffic time of a the next city do:
+					time_cost <- time_cost + traffic_time
+				p1.time_cost <- p.time_cost + time_cost
+				create a list p1.path equal the list p.path plus the adjacent_city
+ 				add p1 to the end of q
+				add adjacent_city to the visited
+	return 0 if not find the way to the goal
+	
+	

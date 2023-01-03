@@ -1,24 +1,22 @@
-matrix <- load from Car_Driving.xlsx file
-heuristic <- load from Air_Distance.xlsx file
-timecost <- load from Real_Time.xlsx file
-expand_time <- load from Extra_Time.xlsx file
 
-function A_star(start, goal, time_start):
-	global variable: path, matrix
-	q = empty queue
-	add a list containing (heuristic_cost = 0, current_cost = 0, current_city = start, path_to_current_node = an empty list, current_time = time_start) to the q
+create a class which name is city containing id, distance_cost, path, name, heuristic
+
+function A*_search(start,goal):
+	q = empty priority queue
+	p = city() with p.name = start, p.distance_cost = 0
 	create empty list named visited 
  	while q is not empty do:
-		take the first list in q and dequeue it
-		if the current_city is the goal then:
-			path = path_to_current_city + current_city
-			return current_cost, current_time
-		if the current_node not in visited then:
-			for adjacent_city in current_city do:
-				heuristic_cost = heuristic_cost + the cost to go to the adjacent city with air distance + the cost to go to the adjacent city 
-				current_cost = current_cost + the cost to go to the adjacent city
-				path_to_current_city = path_to_current_city + adjacent_city
-				current_time = current_time + time cost to go to the adjacent city (additional time if at peak hour)
-				add a list containing (heuristic_cost, current_cost, adjacent_city, path_to_current_node, current_time) to the end of q
+		take the first class variable in q and dequeue it
+		if p.name is the goal then:
+			return p.distance_cost, p.path
+		if p.name not in visited then:
+			for city that is adjacent to p.name do:
+				p1 = city() with p1.name = adjacent_city
+				p1.distance_cost = p.distance_cost + the cost to go to adjacent city
+				p1.heuristic = p.distance_cost + 2 * the cost to go to adjacent city with air distance
+				create a list p1.path equal the list p.path plus the adjacent_city
+ 				add p1 to the q
 				add adjacent_city to the visited
 	return 0 if not find the way to the goal
+	
+	
