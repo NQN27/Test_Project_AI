@@ -2,6 +2,8 @@
   A project help you to understand the apply of UCS, A* in Route Problem.
   
   Get the shorstest Path from a city/place to another by passing through other city.
+#Installation
+  download library folium go to cmd and paste 'pip install folium'
 # Instructions 
   Open Folder Test_Project_AI
 
@@ -21,3 +23,5 @@
   + Transform name of a place to coordinate
   + Get distance and time between two coordinates
   
+  Library Using:
+  numpy,pandas,requests,json,queue,webbrowser,tkinter
