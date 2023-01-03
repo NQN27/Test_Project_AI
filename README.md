@@ -1,16 +1,22 @@
-# Test_Project_AI
-* Description 
-
+# ROUTE PLANING 
+  A project help you to understand the apply of UCS, A* in Route Problem.
+  
   Get the shorstest Path from a city/place to another by passing through other city.
-* Instructions 
+# Instructions 
+  Open Folder Test_Project_AI
 
-  Run Testcode.py if you want to move from a place(given name or coordinate )
+  Run the final_product.ipynb 
+
+  Input is the Name of the Cities can get from Data\name_list.txt file.
   
-  Run Test_class.py if you want to move from a city to another city from 63 cities in the File
-  
-* Implementation
+  Press Show map to get the map in webbrowser
+
+  After Running the final_product.ipynb you must reset all variables as it is global by Pressing Restart button.
+
+
+# Implementation
   
   Using Goong API:  
   + Transform name of a place to coordinate
   + Get distance and time between two coordinates
-  Some Library
+  
